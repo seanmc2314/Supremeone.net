@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Supreme One Training Platform - AI-powered F&I training with real-time deal analysis, compliance monitoring, and interactive roleplay">
+    <title>Training Platform | Supreme One</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/platform.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo-section">
+                <a href="index.html">
+                    <img src="assets/logo.png" alt="Supreme One" class="logo">
+                </a>
+                <span class="nav-motto">Ignite Passion, Inspire Performance</span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="platform.html" class="active">Training Platform</a></li>
+                <li><a href="academy.html">Academy</a></li>
+                <li><a href="book.html">Passionate Consulting</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="#" class="cta-button" onclick="openChat(); return false;">Talk to Sarah AI</a></li>
+            </ul>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">☰</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content fade-in-up">
+                <h1>The Most Advanced <span class="gradient-text">F&I Training Platform</span></h1>
+                <p>Transform your F&I performance with AI-powered deal analysis, real-time compliance monitoring, interactive roleplay, and personalized coaching from Sarah AI.</p>
+                <div class="hero-buttons" style="justify-content: center !important;">
+                    <a href="about.html#demo" class="btn btn-primary">Schedule Demo</a>
+                    <a href="#" class="btn btn-secondary" onclick="openChat(); return false;">Chat with Sarah AI</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Features Grid -->
+    <section class="features-detailed" id="features">
+        <div class="section-header">
+            <h2>Platform Features</h2>
+            <p>Everything you need to excel in F&I</p>
+        </div>
+
+        <!-- Sarah AI Section -->
+        <div class="feature-section">
+            <div class="feature-hero" style="background: linear-gradient(135deg, #1e40af, #7c3aed);">
+                <div class="feature-hero-content">
+                    <div class="feature-hero-text">
+                        <h2>💬 Sarah AI Coach</h2>
+                        <h3>Personalized Coaching That Adapts to YOU</h3>
+                        <p><strong>Sarah AI doesn't train you on rigid scripts or one-size-fits-all processes.</strong> Instead, she learns from YOU - observing how you conduct F&I, understanding your unique style, strengths, and approach. She provides real, personalized coaching designed to make you a better version of yourself, not a clone of someone else.</p>
+
+                        <p style="margin-top: 1rem;"><strong>The goal is continuous growth, not the peaks and valleys of typical F&I training.</strong> Sarah helps you build sustainable improvement through consistent, personalized feedback that evolves with your development. Every day, she provides a coaching tip specifically tailored to your performance - one actionable insight designed to make you better today than you were yesterday.</p>
+
+                        <ul class="check-list" style="margin-top: 1.5rem;">
+                            <li>Learns YOUR unique F&I style and approach</li>
+                            <li>Daily coaching tips based on your performance</li>
+                            <li>Personalized insights to improve every single day</li>
+                            <li>Continuous growth, not temporary spikes</li>
+                            <li>Real-time guidance that adapts to you</li>
+                            <li>Builds on what works for YOU specifically</li>
+                            <li>24/7 availability - consistent support</li>
+                        </ul>
+                    </div>
+                    <div class="feature-hero-image">
+                        <video controls playsinline id="sarahVideo">
+                            <source src="assets/sarah-ai-intro.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Deal Analysis Section -->
+        <div class="feature-section" id="deal-analysis">
+            <div class="feature-detail-grid">
+                <div class="feature-detail-content">
+                    <h2>📊 Live Deal Analysis & Grading</h2>
+                    <h3>Comprehensive Performance Evaluation</h3>
+                    <p><strong>Sarah AI joins you during your F&I deals, listening in real-time to learn from your unique approach.</strong> While you work, she provides on-the-fly coaching to help you navigate the conversation. After the deal concludes, Sarah delivers detailed analysis with actionable feedback across 5 critical performance categories, helping you understand what it takes to be a better you.</p>
+
+                    <div class="grading-categories">
+                        <div class="category-card">
+                            <div class="category-icon">👥</div>
+                            <h4>Customer Interaction</h4>
+                            <ul>
+                                <li>Rapport building and trust</li>
+                                <li>Active listening skills</li>
+                                <li>Empathy and understanding</li>
+                                <li>Professional communication</li>
+                            </ul>
+                        </div>
+                        <div class="category-card">
+                            <div class="category-icon">⚖️</div>
+                            <h4>Compliance</h4>
+                            <ul>
+                                <li>CFPB UDAP adherence</li>
+                                <li>TILA disclosures</li>
+                                <li>ECOA compliance</li>
+                                <li>State regulations</li>
+                            </ul>
+                        </div>
+                        <div class="category-card">
+                            <div class="category-icon">📋</div>
+                            <h4>Process</h4>
+                            <ul>
+                                <li>Discovery completeness</li>
+                                <li>Needs analysis</li>
+                                <li>Logical flow</li>
+                                <li>Documentation accuracy</li>
+                            </ul>
+                        </div>
+                        <div class="category-card">
+                            <div class="category-icon">💼</div>
+                            <h4>Menu Presentation</h4>
+                            <ul>
+                                <li>Value communication</li>
+                                <li>Product knowledge</li>
+                                <li>Benefit stacking</li>
+                                <li>Clear explanations</li>
+                            </ul>
+                        </div>
+                        <div class="category-card">
+                            <div class="category-icon">💬</div>
+                            <h4>Objection Handling</h4>
+                            <ul>
+                                <li>Addressing concerns</li>
+                                <li>Reframing objections</li>
+                                <li>Value reinforcement</li>
+                                <li>Professional persistence</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="feature-benefits">
+                        <h4>What You Get:</h4>
+                        <ul class="check-list">
+                            <li>Real-time analysis during your deals</li>
+                            <li>Overall grade plus detailed category scores</li>
+                            <li>Specific coaching tips for improvement</li>
+                            <li>Motivational movie quotes tied to performance</li>
+                            <li>Compliance violation detection with severity levels</li>
+                            <li>Performance trend tracking over time</li>
+                        </ul>
+
+                        <div style="margin-top: 2rem; padding: 1.5rem; background: white; border-radius: 10px; border-left: 4px solid #10b981;">
+                            <h4 style="color: #10b981; margin-bottom: 0.5rem;">🔒 Privacy Protected</h4>
+                            <p style="color: var(--text-dark); margin: 0; font-size: 1rem; line-height: 1.6;">No information is retained beyond performance reports. Sarah AI does not store transcripts, audio recordings, or video. Everything Sarah AI does for you is private and secure.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Roleplay Training Section -->
+        <div class="feature-section" id="roleplay" style="background: var(--light-gray);">
+            <div class="feature-detail-grid">
+                <div class="feature-detail-content">
+                    <h2>🎭 Interactive Roleplay Training</h2>
+                    <h3>No More Boring, Scripted Roleplays</h3>
+                    <p><strong>The days of doing boring scripted roleplays with someone who already knows what you're doing right and wrong are over.</strong> Why practice with a colleague who can't truly simulate a real customer? Instead, perform with AI customers coached by Sarah AI - each with specific backgrounds, life stories, needs, wants, and buying styles that mirror real-world scenarios.</p>
+
+                    <div class="roleplay-features">
+                        <div class="roleplay-feature">
+                            <div class="roleplay-icon">👥</div>
+                            <h4>Sarah AI-Coached Customers</h4>
+                            <p>AI customers with detailed backgrounds, personalities, financial situations, family dynamics, and realistic objections - just like the real people you meet every day. Sarah AI changes customers randomly and frequently, so roleplay is never stale and always mirrors the real world. Practice here so when you are with your customers you don't think - you just DO.</p>
+                        </div>
+                        <div class="roleplay-feature">
+                            <div class="roleplay-icon">🗣️</div>
+                            <h4>Real Conversations</h4>
+                            <p>No scripts. No predictable responses. These AI customers react naturally to YOUR approach, creating authentic training experiences that prepare you for reality</p>
+                        </div>
+                        <div class="roleplay-feature">
+                            <div class="roleplay-icon">👁️</div>
+                            <h4>Body Language Analysis & Grading</h4>
+                            <p>Since 55% of communication is non-verbal, Sarah AI analyzes your body language, facial expressions, posture, and tone during roleplay. Get real-time feedback on your physical presence and learn how your non-verbal cues impact customer trust and engagement.</p>
+                        </div>
+                        <div class="roleplay-feature">
+                            <div class="roleplay-icon">🎯</div>
+                            <h4>Real F&I Scenarios</h4>
+                            <p>Practice what you actually do: Complete F&I process, Cash-to-Finance conversion, Menu presentation, or selling specific products - not generic "sales training"</p>
+                        </div>
+                    </div>
+
+                    <div class="customer-types">
+                        <h4>Training Scenarios:</h4>
+                        <div class="scenario-grid">
+                            <div class="scenario-card">Complete F&I Process</div>
+                            <div class="scenario-card">Cash Conversion</div>
+                            <div class="scenario-card">Menu Presentation</div>
+                            <div class="scenario-card">Sell Specific Product</div>
+                            <div class="scenario-card">Objection Handling</div>
+                        </div>
+                    </div>
+
+                    <div class="quiz-section" style="margin-top: 3rem; background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);">
+                        <h4 style="font-size: 1.4rem; color: var(--text-dark); margin-bottom: 1.5rem; text-align: center;">Test Your F&I Knowledge</h4>
+                        <div id="quiz-container">
+                            <!-- Quiz questions will be loaded here by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Performance Dashboard Section -->
+        <div class="feature-section">
+            <div class="feature-detail-grid reverse">
+                <div class="feature-detail-content">
+                    <h2>📈 Performance Dashboard & Analytics</h2>
+                    <h3>Data-Driven Insights for Continuous Improvement</h3>
+                    <p>Track your progress with comprehensive analytics. View trends, identify strengths and weaknesses, and watch your team improve with actionable insights.</p>
+
+                    <div class="dashboard-features">
+                        <div class="dashboard-card">
+                            <h4>📊 Individual Performance</h4>
+                            <ul>
+                                <li>Overall grade trends over time</li>
+                                <li>Category-specific progress tracking</li>
+                                <li>Deal-by-deal analysis history</li>
+                                <li>Personalized improvement recommendations</li>
+                            </ul>
+                        </div>
+                        <div class="dashboard-card">
+                            <h4>🏢 Team Analytics</h4>
+                            <ul>
+                                <li>Dealership-wide performance metrics</li>
+                                <li>Individual vs. team comparisons</li>
+                                <li>Top performers and coaching opportunities</li>
+                                <li>Leadership coaching for executives to guide F&I teams toward continuous growth</li>
+                            </ul>
+                        </div>
+                        <div class="dashboard-card">
+                            <h4>📅 Reporting</h4>
+                            <ul>
+                                <li>Weekly, monthly, and yearly reports</li>
+                                <li>Automated email delivery</li>
+                                <li>PDF export for management</li>
+                                <li>Trend diagnosis to identify patterns and growth opportunities</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="metrics-highlight">
+                        <h4>Key Metrics Tracked:</h4>
+                        <div class="metrics-grid">
+                            <div class="metric">Current Overall Monthly Score</div>
+                            <div class="metric">Total Deals Done in Month</div>
+                            <div class="metric">Monthly Average</div>
+                            <div class="metric">7-Day Average</div>
+                            <div class="metric">Month-to-Month Performance Trends</div>
+                            <div class="metric">Current Month Trends Across All Categories</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Compliance Monitoring Section -->
+        <div class="feature-section" style="background: var(--light-gray);">
+            <div class="feature-detail-grid reverse">
+                <div class="feature-detail-content">
+                    <h2>⚖️ CFPB Compliance Monitoring</h2>
+                    <h3>Stay Protected with Automated Compliance</h3>
+                    <p>Sarah AI monitors every customer interaction for compliance with federal and state regulations. Get real-time alerts for potential violations before they become problems.</p>
+
+                    <div class="compliance-grid">
+                        <div class="compliance-card">
+                            <h4>🛡️ UDAP Protection</h4>
+                            <p>Detects Unfair, Deceptive, or Abusive Acts and Practices in real-time</p>
+                            <ul>
+                                <li>Misleading statements</li>
+                                <li>Deceptive practices</li>
+                                <li>Abusive tactics</li>
+                                <li>Unfair pressure</li>
+                            </ul>
+                        </div>
+                        <div class="compliance-card">
+                            <h4>📋 TILA Compliance</h4>
+                            <p>Truth in Lending Act disclosure verification</p>
+                            <ul>
+                                <li>APR accuracy</li>
+                                <li>Payment terms clarity</li>
+                                <li>Total cost disclosure</li>
+                                <li>Finance charge details</li>
+                            </ul>
+                        </div>
+                        <div class="compliance-card">
+                            <h4>🤝 ECOA Adherence</h4>
+                            <p>Equal Credit Opportunity Act monitoring</p>
+                            <ul>
+                                <li>Fair lending practices</li>
+                                <li>No discrimination</li>
+                                <li>Equal treatment</li>
+                                <li>Proper notifications</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="severity-levels">
+                        <h4>Violation Severity Scoring:</h4>
+                        <div class="severity-badges">
+                            <span class="severity high">HIGH - Immediate action required</span>
+                            <span class="severity medium">MEDIUM - Review and correct</span>
+                            <span class="severity low">LOW - Minor improvement needed</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Ready to Transform Your F&I Performance?</h2>
+            <p>Join hundreds of dealerships already using Supreme One</p>
+            <div class="hero-buttons" style="justify-content: center;">
+                <a href="about.html#demo" class="btn btn-primary">Schedule Demo</a>
+                <a href="#" class="btn btn-secondary" onclick="openChat(); return false;">Chat with Sarah AI</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-about">
+                <h3>Supreme One</h3>
+                <p>Revolutionary AI-powered F&I training platform designed to transform dealership performance through intelligent coaching, compliance monitoring, and data-driven insights.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Platform</h4>
+                <ul>
+                    <li><a href="platform.html">Training Platform</a></li>
+                    <li><a href="academy.html">Academy</a></li>
+                    <li><a href="#features">Features</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="book.html">Passionate Consulting</a></li>
+                    <li><a href="about.html#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Support</a></li>
+                    <li><a href="#" onclick="openPrivacyModal(); return false;">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Supreme One Training Program. All rights reserved. | Patent Pending | Powered by Sarah AI</p>
+        </div>
+    </footer>
+
+    <!-- Sarah AI Chat Widget -->
+    <div class="chat-widget">
+        <button class="chat-toggle" id="chatToggle" onclick="toggleChat()">💬</button>
+        <div class="chat-window" id="chatWindow">
+            <div class="chat-header">
+                <div class="chat-avatar">
+                    <img src="assets/SarahAI.png" alt="Sarah AI">
+                </div>
+                <div class="chat-info">
+                    <h3>Sarah AI</h3>
+                    <p>F&I Expert & Sales Consultant</p>
+                </div>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+                <div class="message">
+                    <div class="message-avatar">S</div>
+                    <div class="message-content">
+                        <p>Hi! I'm Sarah, Supreme One's AI coach. I can help with questions on:</p>
+                        <p style="margin-top: 0.5rem;">
+                            ✓ Supreme One Training Program<br>
+                            ✓ Supreme One Academy<br>
+                            ✓ Any questions about my coaching ability<br>
+                            ✓ Passionate Consulting Principles<br>
+                            ✓ Scheduling to see me in action
+                        </p>
+                        <p style="margin-top: 0.5rem;">What can I help you with?</p>
+                    </div>
+                </div>
+            </div>
+            <div class="chat-input-container">
+                <div class="chat-input-wrapper">
+                    <input type="text" class="chat-input" id="chatInput" placeholder="Type your message..." onkeypress="handleChatKeyPress(event)">
+                    <button class="chat-send-btn" onclick="sendMessage()">➤</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/sarah-ai.js"></script>
+    <script src="js/quiz.js"></script>
+    <script>
+        // Reset Sarah AI video to beginning when it ends
+        const sarahVideo = document.getElementById('sarahVideo');
+        if (sarahVideo) {
+            sarahVideo.addEventListener('ended', function() {
+                this.currentTime = 0;
+            });
+        }
+    </script>
+    <!-- Privacy Policy Modal -->
+    <div id="privacyModal" class="privacy-modal" onclick="if(event.target === this) closePrivacyModal()">
+        <div class="privacy-modal-content">
+            <span class="privacy-modal-close" onclick="closePrivacyModal()">&times;</span>
+            <div class="privacy-modal-body">
+                <div style="text-align: center; margin-bottom: 2rem;">
+                    <img src="assets/logo.png" alt="Supreme One" style="height: 80px; margin-bottom: 1rem;">
+                </div>
+
+                <h2 style="text-align: center; color: var(--text-dark); margin-bottom: 1.5rem;">Supreme One Privacy Notice</h2>
+
+                <p style="margin-bottom: 1rem;"><strong>Supreme One, LLC.</strong><br>10 Kelvyn St. Greer, SC 29651<br>864-402-9723<br>www.supremeone.net</p>
+
+                <p style="margin-bottom: 1.5rem;">This Privacy Notice explains how the <strong>Supreme One F&I Training Platform</strong> ("the Program") uses and safeguards information when you use its features. By continuing to use the Program, you acknowledge and consent to the practices described here.</p>
+
+                <h3>1. Program Functions</h3>
+                <p>The Program provides the following features:</p>
+                <ul style="margin-bottom: 1.5rem;">
+                    <li><strong>Live Deal Coaching:</strong> Sarah AI listens passively in the background of live F&I customer interactions.
+                        <ul>
+                            <li>No audio, video, or transcript recordings are created or stored.</li>
+                            <li>Sarah AI generates real-time performance analysis for the user, dealership administrator, group administrator (if applicable), Supreme One users, and Supreme One administrators.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Reports:</strong>
+                        <ul>
+                            <li>Sarah AI provides weekly, monthly, and annual aggregated reports based on deal performance.</li>
+                            <li>Reports contain the same type of analysis as individual deals, with no underlying recordings retained.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Role Play Functionality:</strong>
+                        <ul>
+                            <li>Users may engage with a human-like AI avatar in simulated scenarios.</li>
+                            <li>When the role play uses a webcam, body language may be observed and graded.</li>
+                            <li>No audio, video, or webcam recordings are created or stored.</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h3>2. Information Collected</h3>
+                <ul style="margin-bottom: 1.5rem;">
+                    <li><strong>Performance Data:</strong> Observations and analytics about how a deal or role play was conducted (e.g., communication effectiveness, compliance, objection handling, body language scoring).</li>
+                    <li><strong>User Metadata:</strong> Login credentials, timestamps, and usage patterns necessary to operate and secure the Program.</li>
+                    <li><strong>No Customer PII:</strong> The Program does not collect, record, or store customers' personally identifiable information (PII).</li>
+                </ul>
+
+                <h3>3. Information Sharing</h3>
+                <p>Analyses and reports may be shared only with:</p>
+                <ul style="margin-bottom: 1.5rem;">
+                    <li>The dealership administrator,</li>
+                    <li>The group administrator (if applicable),</li>
+                    <li>Authorized Supreme One users,</li>
+                    <li>Supreme One corporate administrators.</li>
+                </ul>
+                <p style="margin-bottom: 1.5rem;">No information is sold or shared with third parties outside this scope.</p>
+
+                <h3>4. Security</h3>
+                <p style="margin-bottom: 1.5rem;">Supreme One employs industry-standard safeguards (encryption, access controls, secure servers) to protect data. While no system is 100% secure, we take reasonable steps to prevent unauthorized access, misuse, or disclosure.</p>
+
+                <h3>5. User Rights</h3>
+                <p>You have the right to:</p>
+                <ul style="margin-bottom: 1.5rem;">
+                    <li>Request access to your personal performance reports.</li>
+                    <li>Request correction of inaccuracies.</li>
+                    <li>Request deletion of your stored digital agreement.</li>
+                </ul>
+                <p style="margin-bottom: 1.5rem;">Requests may be submitted to: <strong>Sean McNally – smcnally@supremeone.net</strong></p>
+
+                <h3>6. Patent Pending</h3>
+                <p style="margin-bottom: 1.5rem;">The Program and its methodologies are the subject of a pending U.S. patent application. All rights reserved.</p>
+
+                <h3>7. Consent</h3>
+                <p>By using this Program, you acknowledge:</p>
+                <ul style="margin-bottom: 1.5rem;">
+                    <li>You understand how Sarah AI functions.</li>
+                    <li>You consent to the Program's collection and use of information as described.</li>
+                    <li>You agree that no customer conversations are recorded or retained.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openPrivacyModal() {
+            document.getElementById('privacyModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closePrivacyModal() {
+            document.getElementById('privacyModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+    </script>
+</body>
+</html>

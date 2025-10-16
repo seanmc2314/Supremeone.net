@@ -1,0 +1,30 @@
+{
+  "pageViews": {
+    "academy.html": {
+      "count": 17,
+      "lastVisit": "2025-10-16T17:08:53.565Z"
+    },
+    "index.html": {
+      "count": 14,
+      "lastVisit": "2025-10-16T17:08:49.969Z"
+    },
+    "book.html": {
+      "count": 10,
+      "lastVisit": "2025-10-16T17:08:56.630Z"
+    },
+    "platform.html": {
+      "count": 10,
+      "lastVisit": "2025-10-16T17:06:04.713Z"
+    },
+    "about.html": {
+      "count": 10,
+      "lastVisit": "2025-10-16T17:08:58.497Z"
+    }
+  },
+  "chats": {
+    "total": 0,
+    "sessions": []
+  },
+  "clicks": {},
+  "created": "2025-10-16T16:14:54.908Z"
+}
