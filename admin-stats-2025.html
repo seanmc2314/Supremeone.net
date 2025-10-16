@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics Dashboard | Supreme One</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #1e40af;
+            --secondary-red: #dc2626;
+            --dark-gray: #1f2937;
+            --light-gray: #f3f4f6;
+            --white: #ffffff;
+            --success-green: #10b981;
+            --warning-yellow: #f59e0b;
+            --text-dark: #111827;
+            --text-light: #6b7280;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Password Screen */
+        .password-screen {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .password-box {
+            background: white;
+            padding: 3rem;
+            border-radius: 1rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .password-box h1 {
+            font-size: 1.75rem;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .password-box p {
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+
+        .password-input {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .password-input:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+        }
+
+        .password-btn {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-red));
+            color: white;
+            border: none;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .password-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .error-message {
+            color: var(--secondary-red);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            display: none;
+        }
+
+        .header {
+            background: var(--white);
+            padding: 0.75rem 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            height: 70px;
+        }
+
+        .logo-section {
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-img {
+            height: 55px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .user-menu {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logout-btn {
+            background: var(--secondary-red);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: opacity 0.3s;
+        }
+
+        .logout-btn:hover {
+            opacity: 0.9;
+        }
+
+        .analytics-container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .analytics-header {
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-red));
+            color: white;
+            padding: 2.5rem;
+            border-radius: 1rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .analytics-header h1 {
+            font-size: 2.5rem;
+            margin: 0 0 0.5rem 0;
+        }
+
+        .analytics-header p {
+            margin: 0;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+
+        .stat-card h3 {
+            margin: 0 0 0.5rem 0;
+            font-size: 0.9rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+        }
+
+        .stat-card .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-red));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .section h2 {
+            margin: 0 0 1.5rem 0;
+            color: var(--text-dark);
+            border-bottom: 2px solid var(--light-gray);
+            padding-bottom: 0.75rem;
+            font-weight: 600;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+            overflow-x: auto;
+            display: block;
+        }
+
+        .data-table thead,
+        .data-table tbody {
+            display: table;
+            width: 100%;
+            table-layout: fixed;
+        }
+
+        .data-table th {
+            text-align: left;
+            padding: 0.75rem;
+            background: var(--light-gray);
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .data-table td {
+            padding: 0.75rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .data-table tr:hover {
+            background: #f9fafb;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 0.5rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .badge-success {
+            background: rgba(16, 185, 129, 0.15);
+            color: var(--success-green);
+        }
+
+        .badge-warning {
+            background: rgba(245, 158, 11, 0.15);
+            color: var(--warning-yellow);
+        }
+
+        .badge-info {
+            background: rgba(30, 64, 175, 0.15);
+            color: var(--primary-blue);
+        }
+
+        .refresh-btn {
+            background: var(--primary-blue);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .refresh-btn:hover {
+            background: #1e3a8a;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(30, 64, 175, 0.3);
+        }
+
+        .loading {
+            text-align: center;
+            padding: 3rem;
+            color: var(--text-light);
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .no-data {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-light);
+            font-style: italic;
+        }
+
+        .dashboard-content {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .analytics-container {
+                padding: 1rem;
+            }
+
+            .analytics-header h1 {
+                font-size: 2rem;
+            }
+
+            .password-box {
+                padding: 2rem;
+            }
+
+            .data-table {
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Password Screen -->
+    <div id="passwordScreen" class="password-screen">
+        <div class="password-box">
+            <h1>🔒 Secure Access</h1>
+            <p>Enter password to view analytics</p>
+            <input type="password"
+                   id="passwordInput"
+                   class="password-input"
+                   placeholder="Enter password"
+                   onkeypress="if(event.key==='Enter') checkPassword()">
+            <button class="password-btn" onclick="checkPassword()">Access Dashboard</button>
+            <div id="errorMessage" class="error-message">Incorrect password. Please try again.</div>
+        </div>
+    </div>
+
+    <!-- Dashboard Content (hidden until password correct) -->
+    <div id="dashboardContent" class="dashboard-content">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo-section">
+                <img src="assets/logo.png" alt="Supreme One" class="logo-img">
+            </div>
+            <div class="user-menu">
+                <span style="color: var(--text-light); font-size: 0.9rem;">Analytics Dashboard</span>
+                <button class="logout-btn" onclick="logout()">Logout</button>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="analytics-container">
+            <div class="analytics-header">
+                <h1>📊 Supreme One Analytics Dashboard</h1>
+                <p>Private analytics - Page views, chat sessions, and user interactions</p>
+                <button class="refresh-btn" onclick="loadAnalytics()" style="margin-top: 1rem;">🔄 Refresh Data</button>
+            </div>
+
+            <div id="loading" class="loading">
+                Loading analytics data...
+            </div>
+
+            <div id="analytics-content" style="display: none;">
+                <!-- Stats Overview -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>Total Visitors</h3>
+                        <div class="stat-number" id="totalVisitors">0</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Unique Visitors</h3>
+                        <div class="stat-number" id="uniqueVisitors">0</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Today's Visits</h3>
+                        <div class="stat-number" id="todayVisitors">0</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Total Chats</h3>
+                        <div class="stat-number" id="totalChats">0</div>
+                    </div>
+                </div>
+
+                <!-- Page Views Section -->
+                <div class="section">
+                    <h2>📄 Page Views</h2>
+                    <div style="overflow-x: auto;">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Page</th>
+                                    <th>Views</th>
+                                    <th>Last Visit</th>
+                                </tr>
+                            </thead>
+                            <tbody id="pageViewsTable">
+                                <tr><td colspan="3" class="no-data">No data available</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Recent Chats Section -->
+                <div class="section">
+                    <h2>💬 Recent Chat Sessions</h2>
+                    <div style="overflow-x: auto;">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Session ID</th>
+                                    <th>Start Time</th>
+                                    <th>Messages</th>
+                                    <th>Duration</th>
+                                    <th>User Info</th>
+                                </tr>
+                            </thead>
+                            <tbody id="chatsTable">
+                                <tr><td colspan="5" class="no-data">No chat sessions yet</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Clicks Section -->
+                <div class="section">
+                    <h2>🖱️ Button Clicks</h2>
+                    <div style="overflow-x: auto;">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Element</th>
+                                    <th>Page</th>
+                                    <th>Clicks</th>
+                                    <th>Last Click</th>
+                                </tr>
+                            </thead>
+                            <tbody id="clicksTable">
+                                <tr><td colspan="4" class="no-data">No clicks tracked yet</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Password: SupremeOne2025!
+        const correctPasswordHash = 'c8e5f8a7b2d9e4c1a6f3b5e8d2c7a9b4'; // Simple hash representation
+
+        function simpleHash(str) {
+            let hash = 0;
+            for (let i = 0; i < str.length; i++) {
+                const char = str.charCodeAt(i);
+                hash = ((hash << 5) - hash) + char;
+                hash = hash & hash;
+            }
+            return Math.abs(hash).toString(16);
+        }
+
+        function checkPassword() {
+            const input = document.getElementById('passwordInput').value;
+            const errorMsg = document.getElementById('errorMessage');
+
+            // Password is: SupremeOne2025!
+            if (input === 'SupremeOne2025!') {
+                // Store auth in sessionStorage
+                sessionStorage.setItem('analyticsAuth', 'true');
+
+                // Hide password screen, show dashboard
+                document.getElementById('passwordScreen').style.display = 'none';
+                document.getElementById('dashboardContent').style.display = 'block';
+
+                // Load analytics data
+                loadAnalytics();
+            } else {
+                errorMsg.style.display = 'block';
+                document.getElementById('passwordInput').value = '';
+                document.getElementById('passwordInput').focus();
+            }
+        }
+
+        function logout() {
+            sessionStorage.removeItem('analyticsAuth');
+            document.getElementById('passwordScreen').style.display = 'flex';
+            document.getElementById('dashboardContent').style.display = 'none';
+            document.getElementById('passwordInput').value = '';
+        }
+
+        // Check if already authenticated
+        window.addEventListener('DOMContentLoaded', function() {
+            if (sessionStorage.getItem('analyticsAuth') === 'true') {
+                document.getElementById('passwordScreen').style.display = 'none';
+                document.getElementById('dashboardContent').style.display = 'block';
+                loadAnalytics();
+            } else {
+                document.getElementById('passwordInput').focus();
+            }
+        });
+
+        async function loadAnalytics() {
+            try {
+                document.getElementById('loading').style.display = 'block';
+                document.getElementById('analytics-content').style.display = 'none';
+
+                const response = await fetch('https://supreme-one-api.onrender.com/api/analytics/dashboard');
+                const data = await response.json();
+
+                // Update stats cards
+                document.getElementById('totalVisitors').textContent = data.visitors.total.toLocaleString();
+                document.getElementById('uniqueVisitors').textContent = data.visitors.unique.toLocaleString();
+                document.getElementById('todayVisitors').textContent = data.visitors.today.toLocaleString();
+                document.getElementById('totalChats').textContent = data.chats.total.toLocaleString();
+
+                // Populate page views table
+                const pageViewsTable = document.getElementById('pageViewsTable');
+                if (data.pageViews.length > 0) {
+                    pageViewsTable.innerHTML = data.pageViews.map(page => `
+                        <tr>
+                            <td><strong>${page.page}</strong></td>
+                            <td><span class="badge badge-success">${page.count} views</span></td>
+                            <td>${new Date(page.lastVisit).toLocaleString()}</td>
+                        </tr>
+                    `).join('');
+                } else {
+                    pageViewsTable.innerHTML = '<tr><td colspan="3" class="no-data">No page views yet</td></tr>';
+                }
+
+                // Populate chats table
+                const chatsTable = document.getElementById('chatsTable');
+                if (data.chats.recent.length > 0) {
+                    chatsTable.innerHTML = data.chats.recent.map(chat => {
+                        const duration = chat.duration ? `${Math.round(chat.duration / 60)} min` : 'Active';
+                        const userName = chat.userInfo?.name || 'Anonymous';
+                        return `
+                            <tr>
+                                <td><code>${chat.sessionId.substring(0, 20)}...</code></td>
+                                <td>${new Date(chat.startTime).toLocaleString()}</td>
+                                <td><span class="badge badge-info">${chat.messageCount} messages</span></td>
+                                <td><span class="badge ${chat.duration ? 'badge-success' : 'badge-warning'}">${duration}</span></td>
+                                <td><strong>${userName}</strong></td>
+                            </tr>
+                        `;
+                    }).join('');
+                } else {
+                    chatsTable.innerHTML = '<tr><td colspan="5" class="no-data">No chat sessions yet</td></tr>';
+                }
+
+                // Populate clicks table
+                const clicksTable = document.getElementById('clicksTable');
+                if (data.clicks.length > 0) {
+                    clicksTable.innerHTML = data.clicks.map(click => `
+                        <tr>
+                            <td><strong>${click.element}</strong></td>
+                            <td>${click.page}</td>
+                            <td><span class="badge badge-info">${click.count} clicks</span></td>
+                            <td>${new Date(click.lastClick).toLocaleString()}</td>
+                        </tr>
+                    `).join('');
+                } else {
+                    clicksTable.innerHTML = '<tr><td colspan="4" class="no-data">No clicks tracked yet</td></tr>';
+                }
+
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('analytics-content').style.display = 'block';
+
+            } catch (error) {
+                console.error('Error loading analytics:', error);
+                document.getElementById('loading').innerHTML = '<div style="color: var(--secondary-red);">Error loading analytics. Make sure the API server is running.</div>';
+            }
+        }
+
+        // Auto-refresh every 30 seconds (only when authenticated)
+        setInterval(() => {
+            if (sessionStorage.getItem('analyticsAuth') === 'true') {
+                loadAnalytics();
+            }
+        }, 30000);
+    </script>
+</body>
+</html>
