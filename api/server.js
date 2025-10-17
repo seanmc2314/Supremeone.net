@@ -214,10 +214,19 @@ async function getVisitorCount() {
 }
 
 async function saveVisitorCount(data) {
+    // Convert Sets to Arrays for JSON storage
+    const dailyData = {};
+    for (const [date, stats] of Object.entries(data.daily || {})) {
+        dailyData[date] = {
+            total: stats.total,
+            unique: Array.from(stats.unique || [])
+        };
+    }
+
     await fs.writeFile(VISITOR_FILE, JSON.stringify({
         total: data.total,
         unique: Array.from(data.unique),
-        daily: data.daily
+        daily: dailyData
     }, null, 2));
 }
 
