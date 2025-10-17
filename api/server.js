@@ -861,7 +861,7 @@ app.post('/api/contact/submit', async (req, res) => {
             <body style="margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background-color: #f3f4f6;">
                 <div style="max-width: 600px; margin: 0 auto; background-color: #ffffff;">
                     <!-- Header -->
-                    <div style="background: linear-gradient(135deg, #1e40af 0%, #7c3aed 100%); padding: 40px 30px; text-align: center;">
+                    <div style="background: linear-gradient(135deg, #1e40af 0%, #dc2626 100%); padding: 40px 30px; text-align: center;">
                         <h1 style="margin: 0; font-size: 32px; font-weight: 800; color: #ffffff; letter-spacing: -0.5px;">Supreme One</h1>
                         <p style="margin: 8px 0 0 0; font-size: 16px; color: rgba(255, 255, 255, 0.95); font-weight: 600; letter-spacing: 0.5px;">Ignite Passion, Inspire Performance</p>
                         <div style="margin-top: 5px; font-size: 11px; color: rgba(255, 255, 255, 0.8); text-transform: uppercase; letter-spacing: 1.5px; font-weight: 600;">Patent Pending</div>
@@ -918,7 +918,7 @@ app.post('/api/contact/submit', async (req, res) => {
                             Best regards,<br>
                             <strong style="color: #1e40af;">The Supreme One Team</strong>
                         </p>
-                        <p style="margin: 8px 0 0 0; color: #7c3aed; font-size: 14px; font-weight: 600;">
+                        <p style="margin: 8px 0 0 0; color: #dc2626; font-size: 14px; font-weight: 600;">
                             💬 Powered by Sarah AI
                         </p>
                     </div>
