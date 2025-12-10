@@ -1,5 +1,84 @@
 // Main JavaScript for Supreme One Website
 
+// ============================================
+// SCRAPE PROTECTION - Basic anti-scraping measures
+// ============================================
+
+// Disable right-click context menu
+document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+    return false;
+});
+
+// Disable text selection
+document.addEventListener('selectstart', function(e) {
+    // Allow selection in input fields and textareas
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') {
+        return true;
+    }
+    e.preventDefault();
+    return false;
+});
+
+// Disable copy
+document.addEventListener('copy', function(e) {
+    // Allow copy in input fields and textareas
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') {
+        return true;
+    }
+    e.preventDefault();
+    return false;
+});
+
+// Disable keyboard shortcuts for viewing source/dev tools
+document.addEventListener('keydown', function(e) {
+    // Ctrl+U (view source)
+    if (e.ctrlKey && e.key === 'u') {
+        e.preventDefault();
+        return false;
+    }
+    // Ctrl+Shift+I (dev tools)
+    if (e.ctrlKey && e.shiftKey && e.key === 'I') {
+        e.preventDefault();
+        return false;
+    }
+    // Ctrl+Shift+J (console)
+    if (e.ctrlKey && e.shiftKey && e.key === 'J') {
+        e.preventDefault();
+        return false;
+    }
+    // Ctrl+Shift+C (inspect element)
+    if (e.ctrlKey && e.shiftKey && e.key === 'C') {
+        e.preventDefault();
+        return false;
+    }
+    // F12 (dev tools)
+    if (e.key === 'F12') {
+        e.preventDefault();
+        return false;
+    }
+    // Ctrl+S (save page)
+    if (e.ctrlKey && e.key === 's') {
+        e.preventDefault();
+        return false;
+    }
+});
+
+// Disable drag
+document.addEventListener('dragstart', function(e) {
+    e.preventDefault();
+    return false;
+});
+
+// Console warning
+console.log('%c⚠️ WARNING', 'color: red; font-size: 40px; font-weight: bold;');
+console.log('%cThis is a protected website. Unauthorized scraping or copying of content is prohibited.', 'color: red; font-size: 16px;');
+console.log('%c© 2025 Supreme One. All rights reserved. Patent Pending.', 'font-size: 14px;');
+
+// ============================================
+// END SCRAPE PROTECTION
+// ============================================
+
 // Navbar scroll effect
 window.addEventListener('scroll', function() {
     const navbar = document.getElementById('navbar');
