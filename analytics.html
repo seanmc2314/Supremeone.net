@@ -187,6 +187,16 @@
             color: var(--primary-blue);
         }
 
+        .badge-bot {
+            background: rgba(220, 38, 38, 0.15);
+            color: #dc2626;
+        }
+
+        .badge-human {
+            background: rgba(16, 185, 129, 0.15);
+            color: var(--success-green);
+        }
+
         .refresh-btn {
             background: var(--primary-blue);
             color: white;
@@ -374,10 +384,11 @@
                             <th>Country</th>
                             <th>IP Address</th>
                             <th>ISP</th>
+                            <th>Type</th>
                         </tr>
                     </thead>
                     <tbody id="recentVisitorsTable">
-                        <tr><td colspan="7" class="no-data">No visitor data yet</td></tr>
+                        <tr><td colspan="8" class="no-data">No visitor data yet</td></tr>
                     </tbody>
                 </table>
             </div>
@@ -480,6 +491,7 @@
                         const country = visitor.country || 'Unknown';
                         const ip = visitor.ip || 'Unknown';
                         const isp = visitor.isp || 'Unknown';
+                        const isBot = visitor.isBot || false;
 
                         // Get country flag emoji (simple mapping for common countries)
                         const countryFlags = {
@@ -499,9 +511,11 @@
                             'Local': '💻'
                         };
                         const flag = countryFlags[country] || '🌍';
+                        const botBadge = isBot ? '<span class="badge badge-bot">🤖 BOT</span>' : '<span class="badge badge-human">👤 Human</span>';
+                        const rowStyle = isBot ? 'style="opacity: 0.6; background: #fff3cd;"' : '';
 
                         return `
-                            <tr>
+                            <tr ${rowStyle}>
                                 <td><span class="visitor-time">${timestamp}</span></td>
                                 <td><strong>${page}</strong></td>
                                 <td>${city}</td>
@@ -509,11 +523,12 @@
                                 <td><span class="location-flag">${flag}</span><strong>${country}</strong></td>
                                 <td><span class="ip-address">${ip}</span></td>
                                 <td><small>${isp}</small></td>
+                                <td>${botBadge}</td>
                             </tr>
                         `;
                     }).join('');
                 } else {
-                    recentVisitorsTable.innerHTML = '<tr><td colspan="7" class="no-data">No visitor data yet</td></tr>';
+                    recentVisitorsTable.innerHTML = '<tr><td colspan="8" class="no-data">No visitor data yet</td></tr>';
                 }
 
                 // Populate clicks table
